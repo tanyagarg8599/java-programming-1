@@ -1,0 +1,81 @@
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
+
+public class Employee {
+public Employee(Integer empId,String empName,String empDesignation,Integer empSalary,
+String empLocation) {
+this.empId=empId;
+this.empName= empName;
+this.empDesignation=empDesignation;
+this.empSalary=empSalary;
+this.empLocation=empLocation;
+
+}
+private Integer empId;
+private String empName;
+private String empDesignation;
+private Integer empSalary;
+private String empLocation;
+public Integer getEmpId() {
+return empId;
+}
+public void setEmpId(Integer empId) {
+this.empId = empId;
+}
+public String getEmpName() {
+return empName;
+}
+public void setEmpName(String empName) {
+this.empName = empName;
+}
+public String getEmpDesignation() {
+return empDesignation;
+}
+public void setEmpDesignation(String empDesignation) {
+this.empDesignation = empDesignation;
+}
+public Integer getEmpSalary() {
+return empSalary;
+}
+public void setEmpSalary(Integer empSalary) {
+this.empSalary = empSalary;
+}
+public String getEmpLocation() {
+return empLocation;
+}
+public void setEmpLocation(String empLocation) {
+this.empLocation = empLocation;
+}
+public String toString(){  
+ return empId+" "+empName+" "+empDesignation+" "+empSalary+" "+empLocation;  
+}
+public static void main(String[] args) {
+List<Employee> empList = new ArrayList<>();
+
+empList.add(new Employee(100,"A","aaae",50000,"auhduw"));
+empList.add(new Employee(101,"B","aaa",51000,"idsuwio"));
+empList.add(new Employee(102,"C","aaae",52000,"mceoim"));
+empList.add(new Employee(103,"D","aeaa",52000,"oejem"));
+empList.add(new Employee(104,"E","aaea",48000,"mcksis"));
+empList.add(new Employee(105,"F","aaea",49000,"dlaid"));
+empList.add(new Employee(106,"G","aaae",58000,"leji"));
+empList.add(new Employee(107,"H","aaea",41000,"skiwjw"));
+empList.add(new Employee(108,"I","aaaee",56000,"mwjwiu"));
+empList.add(new Employee(109,"J","aaeae",47000,"wjwj"));
+       
+empList.stream().forEach(x -> System.out.println(x.getEmpName()));
+System.out.println("----------------------------------------------");
+List<Employee> filter2= empList.stream().filter(a -> a.empSalary>50000).collect(Collectors.toList());
+filter2.stream().forEach(x -> System.out.println(x.toString()));
+System.out.println("----------------------------------------------");
+List<Employee> filter3= empList.stream().filter(a -> a.empLocation.startsWith("m")).collect(Collectors.toList());
+filter3.stream().forEach(x -> System.out.println(x.toString()));
+System.out.println("----------------------------------------------");
+List<Employee> filter4= empList.stream().filter(a -> a.empDesignation.endsWith("e")).collect(Collectors.toList());
+filter4.stream().forEach(x -> System.out.println(x.toString()));
+}
+
+}
